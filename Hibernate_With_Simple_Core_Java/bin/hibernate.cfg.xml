@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<!-- DataSource -->
+    	<!-- Add cj as the folder to match with the path of Driver in your mysql connector jar file -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        
+        <!-- Here you specify the URL and also you have written to create the database if it doesn't exists -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/201_hibernate_corejava?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">tevd0161</property>
+        <!-- Above four properties are necessary in order to create connection to DB  -->
+        
+        <!-- Hibernate Properties -->
+        
+        <!-- Jo bana hua query dekhna hai console pe uske liye niche ke property ko true rakhna padta hai  -->
+        <property name="hibernate.show_sql">true</property>
+        
+        <!-- We know that hibernate automatically creates the table -->
+		<!-- What ORM will do is , it will go into the database and then it will map the particular Product(class) to the table -->
+		<!-- ORM will automatically create a table same as the POJO class -->
+		<!-- How it can be achieved ? - With the help of a property :Create table automatically -  hbmtoddl -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- update kyu likha hai vo bad mai batayenge sir -->
+        <!-- Ab isse kya hoga? Agar table nhi hai db ke andar to as per pojo bahar hi ajayega ye -->
+        
+        
+        
+        <!-- Dialect hi convert karega method ko to corresponding database query -->
+        <!-- Hibernate only supports relational database -->
+        <!-- Suppose in future kabhi oracle database se bat karna hai to OracleDialect ka use karna padega -->
+        <!-- Dialect hamesha jo database use kar rhe ho uska dena padta hai -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		
+		<!-- Not necessary below because naye methods se ek single annotation mai kam ban jata hai -->
+		<!-- hbm tells hibernate ki kaunse table ke sath relation banana hai -->
+        <!-- <mapping resource="book.hbm.xml" /> -->
+    </session-factory>
+</hibernate-configuration>
