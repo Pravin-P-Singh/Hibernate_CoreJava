@@ -35,6 +35,8 @@
         <!-- Dialect hamesha jo database use kar rhe ho uska dena padta hai -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
+		<!-- Yahi vo property hai jo ek entity class ko database mai table se match karati hai -->
+		<!-- Entity class ke nam se table ban jata hai aur us class ke properties ka column ban jata hai -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		
